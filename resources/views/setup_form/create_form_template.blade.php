@@ -314,7 +314,7 @@ $count = get_form_field_position($form['id'])
                 $(document).on('change', '#input_type', function() {
                     var input_type = this.value;
                     // console.log(input_type)
-                    // 11 mean input type is number
+                    // 11 meaning input type is number
                     if (input_type == 11) {
                         // console.log("name");
                         $('#input_max_length').hide();
