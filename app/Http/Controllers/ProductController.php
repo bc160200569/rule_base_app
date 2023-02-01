@@ -122,4 +122,11 @@ class ProductController extends Controller
         return redirect()->route('products.index')
                         ->with('success','Product deleted successfully');
     }
+
+    public function products_index(){
+        // echo 'add products';
+        $products = Product::latest()->paginate(5);
+        return view('products.products_index',compact('products'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }

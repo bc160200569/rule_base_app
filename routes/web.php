@@ -67,5 +67,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
         Route::resource('officer', OfficerController::class);
         Route::get('icp_chart/{id}',[OfficerController::class, 'show_icp_chart'])->name('icp_chart');
+
+        Route::get('products_index',[ProductController::class, 'products_index'])->name('products_index');
 });
 // Route::resource('products', ProductController::class)->middleware('can:product-list');
