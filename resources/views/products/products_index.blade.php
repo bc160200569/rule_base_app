@@ -62,7 +62,7 @@
       {{--<!-- Modal Header -->--}}
       <div class="modal-header">
         <h4 class="modal-title">Edit Product</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close" id="edit_form" data-bs-dismiss="modal"></button>
       </div>
 
       {{--<!-- Modal body -->--}}
@@ -95,7 +95,7 @@
 
       {{--<!-- Modal footer -->--}}
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" id="edit_form" data-bs-dismiss="modal">Close</button>
       </div>
 
     </div>
@@ -167,14 +167,14 @@
 <script>
     $(document).ready(function() {
         $(document).on('click','#editProduct', function(){
-            var pro_id = $(this).val();
+            // var pro_id = $(this).val();
             // console.log(pro_id);
             $('#editProduct').modal('show');
         });
-        $(document).on('click','.btn-close', function(){
-            var pro_id = $(this).val();
+        $(document).on('click','#edit_form', function(){
+            // var pro_id = $(this).val();
             // console.log(pro_id);
-            $('#editProduct').modal('hide');
+            $('#editProduct').modal('ata-bs-dismiss');
         });
     })
 </script>
