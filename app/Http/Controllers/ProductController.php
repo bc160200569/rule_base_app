@@ -129,4 +129,25 @@ class ProductController extends Controller
         return view('products.products_index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    public function edit_products($id)
+    {
+        $product = Product::find($id);
+        return response()->json([
+            'status' => 200,
+            'product' => $product,
+        ]);
+    }
+    public function update_products(Request $request)
+    {   
+        // echo $request->get('name');
+        // dd($request->all());
+        $pro_id = $request->get('pro_id');
+        $table = Product::find($pro_id);
+        // dd($table);
+        $table->name = $request->get('pro_name');
+        $table->detail = $request->get('detail');
+        $table->update();
+        return redirect()->route('products_index')
+                        ->with('success','Product updated successfully');
+    }
 }

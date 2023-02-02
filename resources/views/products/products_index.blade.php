@@ -67,35 +67,35 @@
 
       {{--<!-- Modal body -->--}}
       <div class="modal-body">
-        <form action="{{ route('products.store') }}" method="POST">
+        <form action="{{ route('update_products') }}" method="PUT">
             @csrf
 
 
             <div class="row">
+                <input name="pro_id" type="hidden" id="pro_id">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Name:</strong>
-                        <input type="text" name="name" class="form-control" placeholder="Enter Product Name">
+                        <input type="text" name="pro_name" id="pro_name" class="form-control" placeholder="Enter Product Name">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Detail:</strong>
-                        <textarea class="form-control" style="height:150px" name="detail" placeholder="Product Detail ..."></textarea>
+                        <textarea class="form-control" id="detail" style="height:150px" name="detail" placeholder="Product Detail ..."></textarea>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                {{--<!-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Update</button>
-                </div>
+                </div> -->--}}
             </div>
 
-
+          {{--<!-- Modal footer -->--}}
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button type="button" class="btn btn-danger" id="edit_form" data-bs-dismiss="modal">Close</button>
+          </div>
         </form>
-      </div>
-
-      {{--<!-- Modal footer -->--}}
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="edit_form" data-bs-dismiss="modal">Close</button>
       </div>
 
     </div>
@@ -163,19 +163,36 @@
 
     {!! $products->links() !!}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function() {
         $(document).on('click','#editProduct', function(){
-            // var pro_id = $(this).val();
+            var pro_id = $(this).val();
             // console.log(pro_id);
             $('#editProduct').modal('show');
+            $.ajax({
+              type: "GET",
+              url:"edit_products/" + pro_id,
+              success: function (response){
+                // console.log(response);
+                $('#pro_id').val(pro_id);
+                $('#pro_name').val(response.product.name);
+                $('#detail').val(response.product.detail);
+              }
+            });
         });
+        // $(document).on('click','#edit_form', function(){
+        //     // var pro_id = $(this).val();
+        //     // console.log(pro_id);
+        //     $('#editProduct').modal('ata-bs-dismiss');
+        // });
+    })
+    $(document).ready(function() {
         $(document).on('click','#edit_form', function(){
             // var pro_id = $(this).val();
             // console.log(pro_id);
-            $('#editProduct').modal('ata-bs-dismiss');
+            $('#editProduct').modal('destroy');
         });
-    })
+      })
 </script>
 @endsection
