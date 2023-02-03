@@ -68,7 +68,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::resource('officer', OfficerController::class);
         Route::get('icp_chart/{id}',[OfficerController::class, 'show_icp_chart'])->name('icp_chart');
 
+        Route::group(['middleware' => ['check_permission']], function(){
         Route::get('products_index',[ProductController::class, 'products_index'])->name('products_index');
+        });
         Route::get('edit_products/{id}',[ProductController::class, 'edit_products'])->name('edit_products');
         Route::get('update_products',[ProductController::class, 'update_products'])->name('update_products');
     });

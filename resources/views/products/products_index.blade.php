@@ -55,7 +55,7 @@
     </div>
   </div>
 </div>
-<div class="modal" id="editProduct">
+<div class="modal" id="edit_Product">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -168,8 +168,8 @@
     $(document).ready(function() {
         $(document).on('click','#editProduct', function(){
             var pro_id = $(this).val();
-            // console.log(pro_id);
-            $('#editProduct').modal('show');
+            console.log(pro_id);
+            $('#edit_Product').modal('show');
             $.ajax({
               type: "GET",
               url:"edit_products/" + pro_id,
@@ -191,7 +191,7 @@
         $(document).on('click','#edit_form', function(){
             // var pro_id = $(this).val();
             // console.log(pro_id);
-            $('#editProduct').modal('destroy');
+            $('#edit_Product').modal('destroy');
         });
       })
 </script>
