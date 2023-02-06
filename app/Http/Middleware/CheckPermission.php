@@ -19,8 +19,8 @@ class CheckPermission
     public function handle(Request $request, Closure $next)
     {
         $role_name = Auth::user()->roles->pluck('id');
-        $permission = $role_name->getAllPermissions();
-        dd($permission);
+        // $permission = $role_name->getAllPermissions();
+        // dd($permission);
         return $next($request);
     }
 }
