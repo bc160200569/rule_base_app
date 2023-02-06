@@ -23,6 +23,7 @@
         <th>Navigation</th>
         <th>Sub Navigation</th>
         <th>Permission Name</th>
+        <th>Route</th>
     </tr>
     @php
     $i='';
@@ -50,6 +51,7 @@
                 @endforeach
             </td>
             <td>{{ $permission->name }}</td>
+            <td>{{ $permission->route }}</td>
         </tr>
     @endforeach
 </table>

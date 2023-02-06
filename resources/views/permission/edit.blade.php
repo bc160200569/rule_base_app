@@ -26,7 +26,7 @@
 {!! Form::open(array('route' => ['permission.update',$data->id],'method'=>'PATCH')) !!}
 @csrf
 <div class="row">
-    <div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="col-xs-3 col-sm-3 col-md-3">
         <div class="form-group">
             <strong>Navigation:</strong>
             <select class="form-control" id="navigation" name="navigation">
@@ -37,17 +37,23 @@
             </select>
         </div>
     </div>
-    <div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="col-xs-3 col-sm-3 col-md-3">
         <div class="form-group">
             <strong>Sub Navigation:</strong>
             <select class="form-control" name="sub_navigation" id="sub_navigation">
             </select>
         </div>
     </div>
-    <div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="col-xs-3 col-sm-3 col-md-3">
         <div class="form-group">
             <strong>Permission Name:</strong>
             {!! Form::text('name', $data->name, array('class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="form-group">
+            <strong>Route Name:</strong>
+            {!! Form::text('route', $data->route, array('class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px ;">

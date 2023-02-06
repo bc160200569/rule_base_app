@@ -68,7 +68,8 @@ class PermissionController extends Controller
     
         Permission::create(['name' => $request->input('name'),
                             'navigation_id' => $request->input('navigation'),
-                            'sub_navigation_id' => $request->input('sub_navigation')
+                            'sub_navigation_id' => $request->input('sub_navigation'),
+                            'route' => $request->input('route')
                         ]);
     
         return redirect()->route('permission.index')
@@ -129,6 +130,7 @@ class PermissionController extends Controller
         $data->name = $request->get('name');
         $data->navigation_id = $request->get('navigation');
         $data->sub_navigation_id = $request->get('sub_navigation');
+        $data->route = $request->get('route');
         $data->save();
         
         return redirect()->route('permission.index')
