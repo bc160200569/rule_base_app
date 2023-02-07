@@ -53,7 +53,7 @@
     <div class="col-xs-3 col-sm-3 col-md-3">
         <div class="form-group">
             <strong>Route Name:</strong>
-            {!! Form::text('name', null, array('class' => 'form-control')) !!}
+            {!! Form::text('route', null, array('class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px ;">
