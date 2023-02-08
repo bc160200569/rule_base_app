@@ -14,13 +14,13 @@ class NavigationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-         $this->middleware('permission:navigation-list', ['only' => ['index','show']]);
-         $this->middleware('permission:navigation-create', ['only' => ['create','store']]);
-         $this->middleware('permission:navigation-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:navigation-delete', ['only' => ['destroy']]);
-    }
+    // function __construct()
+    // {
+    //      $this->middleware('permission:navigation-list', ['only' => ['index','show']]);
+    //      $this->middleware('permission:navigation-create', ['only' => ['create','store']]);
+    //      $this->middleware('permission:navigation-edit', ['only' => ['edit','update']]);
+    //      $this->middleware('permission:navigation-delete', ['only' => ['destroy']]);
+    // }
     public function index()
     {
         //

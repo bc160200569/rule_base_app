@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\View;
 class SubNavigationCont extends Controller
 {
     //
-    function __construct()
-    {
-         $this->middleware('permission:subnav-list', ['only' => ['index','show']]);
-         $this->middleware('permission:subnav-create', ['only' => ['create','store']]);
-         $this->middleware('permission:subnav-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:subnav-delete', ['only' => ['destroy']]);
-    }
+    // function __construct()
+    // {
+    //      $this->middleware('permission:subnav-list', ['only' => ['index','show']]);
+    //      $this->middleware('permission:subnav-create', ['only' => ['create','store']]);
+    //      $this->middleware('permission:subnav-edit', ['only' => ['edit','update']]);
+    //      $this->middleware('permission:subnav-delete', ['only' => ['destroy']]);
+    // }
 
     public function index(Request $request)
     {

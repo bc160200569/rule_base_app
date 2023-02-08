@@ -14,17 +14,17 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-         $this->middleware('permission:permission-list', ['only' => ['index','show']]);
-         $this->middleware('permission:permission-create', ['only' => ['create','store']]);
-         $this->middleware('permission:permission-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:permission-delete', ['only' => ['destroy']]);
-    }
+    // function __construct()
+    // {
+    //      $this->middleware('permission:permission-list', ['only' => ['index','show']]);
+    //      $this->middleware('permission:permission-create', ['only' => ['create','store']]);
+    //      $this->middleware('permission:permission-edit', ['only' => ['edit','update']]);
+    //      $this->middleware('permission:permission-delete', ['only' => ['destroy']]);
+    // }
     public function index()
     {
         //
-        $permissions = Permission::all();
+        $permissions = Permission::all()->sortBy("navigation_id");
         // return view('navigation.index_navigation',compact('permissions'));
         if (View::exists('permission/index')) {
             return View('permission/index',compact('permissions'));
