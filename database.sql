@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2023 at 02:21 PM
+-- Generation Time: Feb 08, 2023 at 01:43 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -58,7 +58,7 @@ INSERT INTO `allow_navigation` (`id`, `name`, `guard_name`, `created_at`, `updat
 (14, 'permission-list', 'web', '2022-12-08 07:11:58', '2023-02-07 05:01:16', 6, 6, 'permission.index'),
 (15, 'permission-create', 'web', '2022-12-14 05:39:15', '2023-02-07 05:01:40', 6, 6, 'permission.create'),
 (16, 'permission-edit', 'web', '2022-12-14 05:39:34', '2023-02-07 05:02:12', 6, 6, 'permission.edit'),
-(17, 'permission-delete', 'web', '2022-12-14 05:39:46', '2023-02-07 05:02:37', 6, 6, 'permission.delete'),
+(17, 'permission-store', 'web', '2022-12-14 05:39:46', '2023-02-08 00:49:33', 6, 6, 'permission.store'),
 (18, 'navigation-list', 'web', '2022-12-15 00:41:49', '2022-12-20 00:29:26', 1, 1, NULL),
 (19, 'navigation-create', 'web', '2022-12-15 00:44:54', '2023-02-07 05:54:04', 1, 1, NULL),
 (20, 'navigation-edit', 'web', '2022-12-15 00:45:06', '2022-12-20 00:30:10', 1, 1, NULL),
@@ -69,13 +69,16 @@ INSERT INTO `allow_navigation` (`id`, `name`, `guard_name`, `created_at`, `updat
 (25, 'subnav-delete', 'web', '2022-12-15 00:53:36', '2022-12-20 00:31:35', 1, 1, NULL),
 (29, 'Homeasad', 'web', '2022-12-21 00:33:44', '2022-12-21 00:33:44', 7, NULL, NULL),
 (30, 'Punjab', 'web', '2023-02-02 05:16:50', '2023-02-02 05:16:50', 8, NULL, NULL),
-(31, 'adduser', 'web', '2023-02-02 05:25:59', '2023-02-02 05:25:59', 3, 4, NULL),
+(31, 'users_show', 'web', '2023-02-02 05:25:59', '2023-02-08 02:24:22', 3, 4, 'users.show'),
 (32, 'products_index', 'web', '2023-02-06 00:52:05', '2023-02-06 00:53:02', 4, 5, NULL),
 (33, 'products_store', 'web', '2023-02-07 05:36:40', '2023-02-07 05:37:03', 4, 7, 'products.store'),
 (34, 'products_update', 'web', '2023-02-07 05:38:02', '2023-02-07 05:38:28', 4, 5, 'products.update'),
 (35, 'roles_show', 'web', '2023-02-07 06:39:55', '2023-02-07 06:40:06', 5, 3, 'roles.show'),
 (36, 'roles_store', 'web', '2023-02-07 06:41:06', '2023-02-07 06:41:15', 5, 3, 'roles.store'),
-(37, 'roles_update', 'web', '2023-02-07 06:42:03', '2023-02-07 06:42:13', 5, 3, 'roles.update');
+(37, 'roles_update', 'web', '2023-02-07 06:42:03', '2023-02-07 06:42:13', 5, 3, 'roles.update'),
+(38, 'permission-update', 'web', '2023-02-08 00:50:17', '2023-02-08 00:50:17', 6, 6, 'permission.update'),
+(39, 'users_store', 'web', '2023-02-08 02:23:46', '2023-02-08 02:23:46', 3, 4, 'users.store'),
+(40, 'users_update', 'web', '2023-02-08 02:25:11', '2023-02-08 02:25:11', 3, 4, 'users.update');
 
 -- --------------------------------------------------------
 
@@ -528,7 +531,10 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (34, 2),
 (35, 2),
 (36, 2),
-(37, 2);
+(37, 2),
+(38, 2),
+(39, 2),
+(40, 2);
 
 -- --------------------------------------------------------
 
@@ -672,7 +678,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (3, 'Admin', 'admin@gmail.com', NULL, '$2y$10$gtN1Gt5u.oBtQteb0c6BB.qmzh9a.lP306n25fLoIl6HT5Io7rGz.', NULL, '2022-12-08 01:47:56', '2022-12-08 01:47:56'),
 (4, 'Asad', 'asad@gmail.com', NULL, '$2y$10$x93b826YGQJ6HS5y0eN0I.XjQ.MtzjRzs5NDWOwV/js8v5tcAvL1C', NULL, '2022-12-08 02:17:43', '2022-12-08 02:17:43'),
-(5, 'test', 'test@gmail.com', NULL, '$2y$10$SYYWL9ejvdH71mwdJ1p/duyfk.AhqoMGqVk0j7mLGN/ADDssIc/WO', NULL, '2022-12-21 00:38:07', '2023-02-07 02:39:32');
+(5, 'test', 'test@gmail.com', NULL, '$2y$10$SYYWL9ejvdH71mwdJ1p/duyfk.AhqoMGqVk0j7mLGN/ADDssIc/WO', NULL, '2022-12-21 00:38:07', '2023-02-08 02:26:15');
 
 --
 -- Indexes for dumped tables
@@ -836,7 +842,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `allow_navigation`
 --
 ALTER TABLE `allow_navigation`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
