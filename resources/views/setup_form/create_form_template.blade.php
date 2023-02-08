@@ -1,4 +1,12 @@
 @extends('layouts.app')
+
+@php
+$title = "Create Form Fields";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
+
 @section('content')
 <div class="row">
     <div class="pull-left">

@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
-
+@php
+$title = "ICP Chart";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="center-block">
-            <h2 style="text-align: center;">ICP Chart</h2>
+            <h2 style="text-align: center;">{{ $title }}</h2>
         </div>
     </div>
 </div>

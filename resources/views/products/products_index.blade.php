@@ -2,7 +2,15 @@
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
-@section('content')
+
+@php
+$title = "Add Product";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
+
+  @section('content')
 <div class="container">
 {{--  <!-- Trigger the modal with a button -->
   <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -15,7 +23,7 @@
 
       {{--<!-- Modal Header -->--}}
       <div class="modal-header">
-        <h4 class="modal-title">Add Product</h4>
+        <h4 class="modal-title">{{ $title }}</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 

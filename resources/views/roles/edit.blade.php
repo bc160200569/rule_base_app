@@ -1,9 +1,17 @@
 @extends('layouts.app')
+
+@php
+$title = "Edit Role";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Role</h2>
+            <h2>{{ $title }}</h2>
         </div>
         <div class="pull-right" style="margin-bottom: 10px;">
             <a class="btn btn-danger" href="{{ route('roles.index') }}"> Back</a>

@@ -1,8 +1,16 @@
 @extends('layouts.app')
+
+@php
+$title = "Edit Form";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
+
 @section('content')
 <div class="row">
     <div class="pull-left">
-        <h2>Edit Form</h2>
+        <h2>{{ $title }}</h2>
     </div>
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">

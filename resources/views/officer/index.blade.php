@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
-
+@php
+$title = "Officer List";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Officer List</h2>
+            <h2>{{ $title }}</h2>
         </div>
         <div class="pull-right" style="margin-bottom: 10px;">
 

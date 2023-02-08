@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
+@php
+$title = "Edit User";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
 
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit New User</h2>
+            <h2>{{ $title }}</h2>
         </div>
         <div class="pull-right" style="margin-bottom: 10px;">
             <a class="btn btn-danger" href="{{ route('users.index') }}"> Back</a>
@@ -42,7 +48,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Password:</strong>
+            <strong>New Password:</strong>
             {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
         </div>
     </div>
@@ -59,7 +65,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center" style="margin-top: 10px;">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Update</button>
     </div>
 </div>
 {!! Form::close() !!}

@@ -1,8 +1,14 @@
 @extends('layouts.app')
+@php
+$title = "Create Permission";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
 @section('content')
 <div class="row">
     <div class="pull-left">
-        <h2>Create Permission</h2>
+        <h2>{{ $title }}</h2>
     </div>
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">

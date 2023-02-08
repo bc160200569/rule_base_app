@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@php
+$title = "Add Officer";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -8,7 +14,7 @@
         </div>
     </div>
     <div class="pull-left">
-        <h2>Add Officer</h2>
+        <h2>{{ $title }}</h2>
     </div>
 </div>
 @if (count($errors) > 0)

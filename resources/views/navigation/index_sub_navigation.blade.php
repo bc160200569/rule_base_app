@@ -3,12 +3,17 @@
 <!-- @php
 $nav_id = $nav_id;
 @endphp -->
-
+@php
+$title = "Sub Navigation List";
+@endphp
+@section('title')
+{{ $title }}
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Sub Navigation List</h2>
+            <h2>{{ $title }}</h2>
         </div>
         <div class="pull-right" style="margin-bottom: 10px;">
             @can('product-create')
